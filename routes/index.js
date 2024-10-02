@@ -1,13 +1,14 @@
 const { MercadoPagoConfig, Payment} = require('mercadopago')
 // db.js
 const mysql = require('mysql2/promise');
+require('dotenv').config(); // Carrega o arquivo .env
 
 // Configuração da conexão com o banco de dados MariaDB
 const pool = mysql.createPool({
-  host: 'localhost',      // Host do banco de dados
-  user: 'root',           // Usuário do banco de dados
-  database: 'vittalux',  // Nome do banco de dados
-  password: '',           // Sem senha no caso específico
+  host: process.env.HOST,      
+  user: process.env.ROOT,           
+  database: process.env.DB, 
+  password: process.env.PSS,           
 });
 
 module.exports = pool;

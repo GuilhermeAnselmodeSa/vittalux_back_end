@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('./database'); // Certifique-se de importar a instância do Sequelize
+const sequelize = require('./database'); // Ajuste o caminho conforme necessário
+const { Sequelize } = require('sequelize');
 
 // Definição da model cadastros
 const Cadastros = sequelize.define('cadastros', {
@@ -9,7 +10,7 @@ const Cadastros = sequelize.define('cadastros', {
     autoIncrement: true,
   },
   cpf: {
-    type: DataTypes.STRING(11), // CPF deve ter 11 caracteres
+    type: DataTypes.STRING(11),
     allowNull: false,
     unique: true,
   },
@@ -19,7 +20,7 @@ const Cadastros = sequelize.define('cadastros', {
     unique: true,
   },
   cep: {
-    type: DataTypes.STRING(8), // CEP deve ter 8 caracteres
+    type: DataTypes.STRING(8),
     allowNull: false,
   },
   rua: {
@@ -43,7 +44,7 @@ const Cadastros = sequelize.define('cadastros', {
     allowNull: false,
   },
   estado: {
-    type: DataTypes.STRING(2), // Estado deve ter 2 caracteres (sigla)
+    type: DataTypes.STRING(2),
     allowNull: false,
   },
   senha: {
@@ -52,9 +53,9 @@ const Cadastros = sequelize.define('cadastros', {
   },
 }, {
   sequelize,
-  modelName: 'Cadastros', // Nome da model
-  tableName: 'cadastros', // Nome da tabela no banco de dados
-  timestamps: true, // Cria createdAt e updatedAt automaticamente
+  modelName: 'Cadastros',
+  tableName: 'cadastros',
+  timestamps: true,
 });
 
-module.exports = { Cadastros };  // Exporta corretamente a model
+module.exports = { Cadastros };

@@ -4,10 +4,10 @@ const mysql = require('mysql2/promise');
 
 // Configuração da conexão com o banco de dados MariaDB
 const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  database: 'vittalux',
-  password: '',
+  host: process.env.HOST,      
+  user: process.env.ROOT,           
+  database: process.env.DB, 
+  password: process.env.PSS,           
 });
 
 // CREATE - Adicionar novo cadastro
